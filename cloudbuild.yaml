@@ -36,6 +36,7 @@ options:
   pool:
     name: projects/$PROJECT_ID/locations/asia-northeast1/workerPools/shimizu-private-pool
   dynamic_substitutions: true
+  logging: CLOUD_LOGGING_ONLY # Cloud Logging のみにログを記録
 
 substitutions:
   _IMAGE_NAME: gcr.io/${PROJECT_ID}/your-nextjs-app

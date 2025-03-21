@@ -21,8 +21,7 @@ export default function Home() {
   return (
     <div>
       <main>
-        <button onClick={handleClick}>テーブル作成ボタン</button>
-        <p>{status}</p>
+        <p>This is super Hero!</p>
       </main>
     </div>
   );

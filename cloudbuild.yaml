@@ -23,7 +23,7 @@ steps:
       - DATABASE_PASS
 
   - id: "migration"
-    name: "${_IMAGE_NAME}" # プッシュしたNode.jsベースのイメージ
+    name: "gcr.io/$PROJECT_ID/next-template:$COMMIT_SHA" # プッシュしたNode.jsベースのイメージ
     entrypoint: npx
     args: ["prisma", "migrate", "deploy"]
     env:

@@ -1,21 +1,13 @@
-# --- Builder Stage ---
-FROM node:20-alpine AS builder
+FROM node:18
 
-ARG NEXTAUTH_SECRET
-ARG NEXTAUTH_URL
-ARG DATABASE_URL
-
-ENV NEXTAUTH_SECRET=$NEXTAUTH_SECRET
-ENV NEXTAUTH_URL=$NEXTAUTH_URL
-ENV DATABASE_URL=$DATABASE_URL
 WORKDIR /app
 
-# 依存関係のインストール
 COPY package*.json ./
 RUN npm install
 
-# アプリケーションソースのコピー
 COPY . .
 
-# Prisma Clientの生成
+# Prisma Clientを事前に生成しておく（任意）
 RUN npx prisma generate
+
+CMD ["npm", "run", "start"]
